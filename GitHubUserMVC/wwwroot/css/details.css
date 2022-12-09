@@ -1,0 +1,831 @@
+﻿
+/*! CSS Used keyframes */
+@keyframes tooltip-appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+/*! CSS Used fontfaces */
+@font-face {
+    font-family: "Noto Sans";
+    src: local(sans-serif);
+    unicode-range: U+60;
+}
+
+
+/*! CSS Used from: https://github.githubassets.com/assets/primer-6d48655e42c1.css ; media=all */
+@media all {
+    img {
+        border-style: none;
+    }
+
+    ::-webkit-input-placeholder {
+        color: inherit;
+        opacity: .54;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    @media (forced-colors: active) {
+        *:focus {
+            outline: solid 1px transparent;
+        }
+    }
+
+    ::placeholder {
+        color: var(--color-fg-subtle);
+        opacity: 1;
+    }
+
+    .border {
+        border: var(--primer-borderWidth-thin, 1px) solid var(--color-border-default) !important;
+    }
+
+    .color-bg-default {
+        background-color: var(--color-canvas-default) !important;
+    }
+
+    .width-full {
+        width: 100% !important;
+    }
+
+    .avatar {
+        background-color: var(--color-avatar-bg);
+        border-radius: var(--primer-borderRadius-medium, 6px);
+        box-shadow: 0 0 0 1px var(--color-avatar-border);
+        display: inline-block;
+        flex-shrink: 0;
+        line-height: 1;
+        overflow: hidden;
+        vertical-align: middle;
+    }
+}
+/*! CSS Used from: https://github.githubassets.com/assets/global-855104497e96.css ; media=all */
+@media all {
+    @media (prefers-color-scheme: dark) {
+        [data-color-mode=auto][data-dark-theme*=dark] ::selection {
+            background-color: var(--color-accent-muted);
+        }
+    }
+
+    .avatar-user {
+        border-radius: 50% !important;
+    }
+
+
+    .avatar {
+        background-color: var(--color-avatar-bg);
+        border-radius: var(--primer-borderRadius-medium, 6px);
+        box-shadow: 0 0 0 1px var(--color-avatar-border);
+        display: inline-block;
+        flex-shrink: 0;
+        line-height: 1;
+        overflow: hidden;
+        vertical-align: middle;
+    }
+}
+
+
+/*! CSS Used from: https://github.githubassets.com/assets/primer-6d48655e42c1.css ; media=all */
+@media all {
+    ::-webkit-input-placeholder {
+        color: inherit;
+        opacity: .54;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    @media (forced-colors: active) {
+        *:focus {
+            outline: solid 1px transparent;
+        }
+    }
+
+    ::placeholder {
+        color: var(--color-fg-subtle);
+        opacity: 1;
+    }
+
+    .d-block {
+        display: block !important;
+    }
+}
+/*! CSS Used from: https://github.githubassets.com/assets/global-855104497e96.css ; media=all */
+@media all {
+    @media (prefers-color-scheme: dark) {
+        [data-color-mode=auto][data-dark-theme*=dark] ::selection {
+            background-color: var(--color-accent-muted);
+        }
+    }
+}
+/*! CSS Used from: https://github.githubassets.com/assets/github-632a8182386b.css ; media=all */
+@media all {
+    .vcard-username {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: var(--base-text-weight-light, 300);
+        line-height: 24px;
+        color: var(--color-fg-muted);
+    }
+}
+
+
+/*! CSS Used from: https://github.githubassets.com/assets/primer-6d48655e42c1.css ; media=all */
+@media all {
+    button {
+        font: inherit;
+        margin: 0;
+    }
+
+    button {
+        overflow: visible;
+    }
+
+    button {
+        text-transform: none;
+    }
+
+    button, html [type=button] {
+        -webkit-appearance: button;
+    }
+
+    ::-webkit-input-placeholder {
+        color: inherit;
+        opacity: .54;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    button {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    button {
+        cursor: pointer;
+        border-radius: 0;
+    }
+
+        button:focus {
+            outline: 2px solid var(--color-accent-fg);
+            outline-offset: -2px;
+            box-shadow: none;
+        }
+
+            button:focus:not(:focus-visible) {
+                outline: solid 1px transparent;
+            }
+
+    @media (forced-colors: active) {
+        *:focus {
+            outline: solid 1px transparent;
+        }
+    }
+
+    .btn {
+        position: relative;
+        display: inline-block;
+        padding: 5px 16px;
+        font-size: 14px;
+        font-weight: var(--base-text-weight-medium, 500);
+        line-height: 20px;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        -webkit-user-select: none;
+        user-select: none;
+        border: 1px solid;
+        border-radius: 6px;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+        .btn:hover {
+            text-decoration: none;
+        }
+
+        .btn:disabled {
+            cursor: default;
+        }
+
+    .btn {
+        color: var(--color-btn-text);
+        background-color: var(--color-btn-bg);
+        border-color: var(--color-btn-border);
+        box-shadow: var(--color-btn-shadow),var(--color-btn-inset-shadow);
+        transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+        transition-property: color,background-color,box-shadow,border-color;
+    }
+
+        .btn:hover {
+            background-color: var(--color-btn-hover-bg);
+            border-color: var(--color-btn-hover-border);
+            transition-duration: .1s;
+        }
+
+        .btn:active {
+            background-color: var(--color-btn-active-bg);
+            border-color: var(--color-btn-active-border);
+            transition: none;
+        }
+
+        .btn:disabled {
+            color: var(--color-primer-fg-disabled);
+            background-color: var(--color-btn-bg);
+            border-color: var(--color-btn-border);
+        }
+
+    .btn-block {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    ::placeholder {
+        color: var(--color-fg-subtle);
+        opacity: 1;
+    }
+}
+/*! CSS Used from: https://github.githubassets.com/assets/global-855104497e96.css ; media=all */
+@media all {
+    body.intent-mouse button:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        [data-color-mode=auto][data-dark-theme*=dark] ::selection {
+            background-color: var(--color-accent-muted);
+        }
+    }
+}
+/*! CSS Used from: https://github.githubassets.com/assets/github-632a8182386b.css ; media=all */
+@media all {
+    @media print {
+        .btn:not(.btn-outline) {
+            color: var(--color-fg-default) !important;
+            background: none;
+        }
+    }
+}
+
+/*! CSS Used from: https://github.githubassets.com/assets/primer-6d48655e42c1.css ; media=all */
+@media all {
+    ::-webkit-input-placeholder {
+        color: inherit;
+        opacity: .54;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    @media (forced-colors: active) {
+        *:focus {
+            outline: solid 1px transparent;
+        }
+    }
+
+    ::placeholder {
+        color: var(--color-fg-subtle);
+        opacity: 1;
+    }
+
+    .color-fg-default {
+        color: var(--color-fg-default) !important;
+    }
+
+    .text-bold {
+        font-weight: var(--base-text-weight-semibold, 600) !important;
+    }
+
+    .Link--secondary:hover [class*=color-fg] {
+        color: inherit !important;
+    }
+}
+/*! CSS Used from: https://github.githubassets.com/assets/global-855104497e96.css ; media=all */
+@media all {
+    @media (prefers-color-scheme: dark) {
+        [data-color-mode=auto][data-dark-theme*=dark] ::selection {
+            background-color: var(--color-accent-muted);
+        }
+    }
+}
+
+
+/* Popular Developers */
+
+/*! CSS Used from: https://github.githubassets.com/assets/primer-6d48655e42c1.css ; media=all */
+@media all {
+    article {
+        display: block;
+    }
+
+    /*a {
+        background-color: transparent;
+    }*/
+
+    img {
+        border-style: none;
+    }
+
+    svg:not(:root) {
+        overflow: hidden;
+    }
+
+    ::-webkit-input-placeholder {
+        color: inherit;
+        opacity: .54;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    /*a {
+        color: var(--color-accent-fg);
+        text-decoration: none;
+    }*/
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a:focus {
+            outline: 2px solid var(--color-accent-fg);
+            outline-offset: -2px;
+            box-shadow: none;
+        }
+
+            a:focus:not(:focus-visible) {
+                outline: solid 1px transparent;
+            }
+
+        a:not([class]):focus {
+            outline-offset: 0;
+        }
+
+    @media (forced-colors: active) {
+        *:focus {
+            outline: solid 1px transparent;
+        }
+    }
+
+    h3, h4 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    h3 {
+        font-size: var(--h3-size, 20px);
+        font-weight: var(--base-text-weight-semibold, 600);
+    }
+
+    h4 {
+        font-size: var(--h4-size, 16px);
+        font-weight: var(--base-text-weight-semibold, 600);
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    .octicon {
+        vertical-align: text-bottom;
+    }
+
+    .octicon {
+        display: inline-block;
+        overflow: visible !important;
+        vertical-align: text-bottom;
+        fill: currentColor;
+    }
+
+    ::placeholder {
+        color: var(--color-fg-subtle);
+        opacity: 1;
+    }
+
+    .col-3 {
+        width: 24.99999999%;
+    }
+
+    .col-9 {
+        width: 74.99999997%;
+    }
+
+    .gutter-condensed {
+        margin-right: -8px;
+        margin-left: -8px;
+    }
+
+        .gutter-condensed > [class*=col-] {
+            padding-right: 8px !important;
+            padding-left: 8px !important;
+        }
+
+    .tooltipped {
+        position: relative;
+    }
+
+        .tooltipped::after {
+            position: absolute;
+            z-index: 1000000;
+            display: none;
+            padding: .5em .75em;
+            font: normal normal 11px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+            -webkit-font-smoothing: subpixel-antialiased;
+            color: var(--color-fg-on-emphasis);
+            text-align: center;
+            text-decoration: none;
+            text-shadow: none;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: break-word;
+            white-space: pre;
+            pointer-events: none;
+            content: attr(aria-label);
+            background: var(--color-neutral-emphasis-plus);
+            border-radius: 6px;
+            opacity: 0;
+        }
+
+        .tooltipped::before {
+            position: absolute;
+            z-index: 1000001;
+            display: none;
+            width: 0;
+            height: 0;
+            color: var(--color-neutral-emphasis-plus);
+            pointer-events: none;
+            content: "";
+            border: 6px solid transparent;
+            opacity: 0;
+        }
+
+        .tooltipped:hover::before, .tooltipped:hover::after, .tooltipped:active::before, .tooltipped:active::after, .tooltipped:focus::before, .tooltipped:focus::after {
+            display: inline-block;
+            text-decoration: none;
+            animation-name: tooltip-appear;
+            animation-duration: .1s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-in;
+            animation-delay: .4s;
+        }
+
+    .tooltipped-ne::after {
+        right: 50%;
+        bottom: 100%;
+        margin-bottom: 6px;
+    }
+
+    .tooltipped-ne::before {
+        top: -7px;
+        right: 50%;
+        bottom: auto;
+        margin-right: -6px;
+        border-top-color: var(--color-neutral-emphasis-plus);
+    }
+
+    .tooltipped-ne::after {
+        right: auto;
+        left: 50%;
+        margin-left: -16px;
+    }
+
+    .color-shadow-small {
+        box-shadow: var(--color-shadow-small) !important;
+    }
+
+    .color-fg-default {
+        color: var(--color-fg-default) !important;
+    }
+
+    .color-fg-muted {
+        color: var(--color-fg-muted) !important;
+    }
+
+    .v-align-middle {
+        vertical-align: middle !important;
+    }
+
+    .mb-0 {
+        margin-bottom: 0 !important;
+    }
+
+    .mr-1 {
+        margin-right: var(--base-size-4, 4px) !important;
+    }
+
+    .ml-1 {
+        margin-left: var(--base-size-4, 4px) !important;
+    }
+
+    .mb-2 {
+        margin-bottom: var(--base-size-8, 8px) !important;
+    }
+
+    .mr-2 {
+        margin-right: var(--base-size-8, 8px) !important;
+    }
+
+    .mb-4 {
+        margin-bottom: var(--base-size-24, 24px) !important;
+    }
+
+    .f4 {
+        font-size: var(--h4-size, 16px) !important;
+    }
+
+    @media (min-width: 768px) {
+        .f4 {
+            font-size: var(--h4-size, 16px) !important;
+        }
+    }
+
+    .f6 {
+        font-size: var(--h6-size, 12px) !important;
+    }
+
+    .lh-condensed {
+        line-height: 1.25 !important;
+    }
+
+    .text-normal {
+        font-weight: var(--base-text-weight-normal, 400) !important;
+    }
+
+    .text-bold {
+        font-weight: var(--base-text-weight-semibold, 600) !important;
+    }
+
+    .d-block {
+        display: block !important;
+    }
+
+    .d-flex {
+        display: flex !important;
+    }
+
+    .avatar {
+        background-color: var(--color-avatar-bg);
+        border-radius: var(--primer-borderRadius-medium, 6px);
+        box-shadow: 0 0 0 1px var(--color-avatar-border);
+        display: inline-block;
+        flex-shrink: 0;
+        line-height: 1;
+        overflow: hidden;
+        vertical-align: middle;
+    }
+
+    .Box {
+        background-color: var(--color-canvas-default);
+        border-color: var(--color-border-default);
+        border-radius: var(--primer-borderRadius-medium, 6px);
+        border-style: solid;
+        border-width: var(--primer-borderWidth-thin, 1px);
+    }
+
+    .Box-header {
+        background-color: var(--color-canvas-subtle);
+        border-color: var(--color-border-default);
+        border-style: solid;
+        border-top-left-radius: var(--primer-borderRadius-medium, 6px);
+        border-top-right-radius: var(--primer-borderRadius-medium, 6px);
+        border-width: var(--primer-borderWidth-thin, 1px);
+        margin: calc(var(--primer-borderWidth-thin, 1px)*-1) calc(var(--primer-borderWidth-thin, 1px)*-1) 0;
+        padding: var(--primer-stack-padding-normal, 16px);
+    }
+
+    .Box-title {
+        font-size: var(--primer-text-body-size-medium, 14px);
+        font-weight: var(--base-text-weight-semibold, 600);
+    }
+
+    .Box-row {
+        border-top: var(--primer-borderWidth-thin, 1px) solid var(--color-border-muted);
+        list-style-type: none;
+        margin-top: calc(var(--primer-borderWidth-thin, 1px)*-1);
+        padding: var(--primer-stack-padding-normal, 16px);
+    }
+
+        .Box-row:first-of-type {
+            border-top-left-radius: var(--primer-borderRadius-medium, 6px);
+            border-top-right-radius: var(--primer-borderRadius-medium, 6px);
+        }
+
+        .Box-row:last-of-type {
+            border-bottom-left-radius: var(--primer-borderRadius-medium, 6px);
+            border-bottom-right-radius: var(--primer-borderRadius-medium, 6px);
+        }
+
+    .Box-footer {
+        border-radius: 0 0 var(--primer-borderRadius-medium, 6px) var(--primer-borderRadius-medium, 6px);
+        border-top: var(--primer-borderWidth-thin, 1px) solid var(--color-border-default);
+        margin-top: calc(var(--primer-borderWidth-thin, 1px)*-1);
+        padding: var(--primer-stack-padding-normal, 16px);
+    }
+}
+/*! CSS Used from: https://github.githubassets.com/assets/global-50b2894f61cc.css ; media=all */
+@media all {
+    .Box-row:first-of-type {
+        border-top-color: transparent;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        [data-color-mode=auto][data-dark-theme*=dark] ::selection {
+            background-color: var(--color-accent-muted);
+        }
+    }
+
+    @media (hover: none) {
+        .tooltipped:hover::before, .tooltipped:hover::after {
+            display: none;
+        }
+    }
+
+    .avatar-user {
+        border-radius: 50% !important;
+    }
+}
+/*! CSS Used from: https://github.githubassets.com/assets/github-632a8182386b.css ; media=all */
+@media all {
+    @media print {
+        p {
+            page-break-inside: avoid;
+        }
+    }
+}
+/*! CSS Used keyframes */
+@keyframes tooltip-appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+/*! CSS Used fontfaces */
+@font-face {
+    font-family: "Noto Sans";
+    src: local(sans-serif);
+    unicode-range: U+60;
+}
+
+
+
+
+.form-control2 {
+    display: block;
+    width: 95%;
+    padding: 0.25rem 0.55rem;
+    font-size: small;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    
+}
+.alert-message {
+    display: none;
+    font-size: smaller;
+    font-weight: 400;
+    line-height: 1.5;
+    color: red;
+}
+
+
+/*! CSS Used from: https://github.githubassets.com/assets/primer-cd5f115a3ed9.css ; media=all */
+@media all {
+    /*a {
+        background-color: transparent;
+    }*/
+
+    svg:not(:root) {
+        overflow: hidden;
+    }
+
+    ::-webkit-input-placeholder {
+        color: inherit;
+        opacity: .54;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+   /* a {
+        color: var(--color-accent-fg);
+        text-decoration: none;
+    }*/
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a:focus {
+            outline: 2px solid var(--color-accent-fg);
+            outline-offset: -2px;
+            box-shadow: none;
+        }
+
+            a:focus:not(:focus-visible) {
+                outline: solid 1px transparent;
+            }
+
+    @media (forced-colors: active) {
+        *:focus {
+            outline: solid 1px transparent;
+        }
+    }
+
+    .octicon {
+        vertical-align: text-bottom;
+    }
+
+    .octicon {
+        display: inline-block;
+        overflow: visible !important;
+        vertical-align: text-bottom;
+        fill: currentColor;
+    }
+
+    ::placeholder {
+        color: var(--color-fg-subtle);
+        opacity: 1;
+    }
+
+    .float-right {
+        float: right !important;
+    }
+
+    .mt-1 {
+        margin-top: var(--base-size-4, 4px) !important;
+    }
+
+    .mr-1 {
+        margin-right: var(--base-size-4, 4px) !important;
+    }
+
+    .mb-2 {
+        margin-bottom: var(--base-size-8, 8px) !important;
+    }
+
+    .ml-2 {
+        margin-left: var(--base-size-8, 8px) !important;
+    }
+
+    .no-wrap {
+        white-space: nowrap !important;
+    }
+
+    .Link--secondary {
+        color: var(--color-fg-muted) !important;
+    }
+
+        .Link--secondary:hover {
+            color: var(--color-accent-fg) !important;
+        }
+}
+/*! CSS Used from: https://github.githubassets.com/assets/global-4bc9b3a08d31.css ; media=all */
+@media all {
+    @media (prefers-color-scheme: dark) {
+        [data-color-mode=auto][data-dark-theme*=dark] ::selection {
+            background-color: var(--color-accent-muted);
+        }
+    }
+}
+
+.focused {
+    border: solid 1px red;
+}

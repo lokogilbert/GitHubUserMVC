@@ -1,0 +1,284 @@
+﻿@model GitHubUserMVC.Models.GitHubDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <div class="row">
+        <div col="col-sm-2">
+            <h1>Profile</h1>
+        </div>
+    </div>
+    <div>
+        <div class="row">
+            <div col="col-sm-2">
+                <img style="height:auto;" alt="" width="310" height="310" class="avatar avatar-user"
+                     src="@Url.Content(Model.UserViewModel.avatar_url)">
+            </div>
+        </div>
+        <div class="row">
+            <div col="col-sm-2">
+                <span class="p-nickname vcard-username d-block" itemprop="additionalName">
+                    @Model.UserViewModel.login
+                </span>
+            </div>
+        </div>
+
+
+        <div id="profileDetail">
+            <div class="row">
+                <div class="col-md-3">
+                    <hr />
+                </div>
+            </div>
+
+            <div class="row">
+                <form>
+                    <div class="mb-2">
+                        @Html.LabelFor(model => model.UserViewModel.name, new { @class="form-label"})
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.UserViewModel.name, new {disabled= "disabled", @class = "form-control2" })
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        @Html.LabelFor(model => model.UserViewModel.bio, new { @class="form-label"})
+                        <div class="col-md-3">
+                            @Html.TextAreaFor(model => model.UserViewModel.bio, 4, 30, new {disabled= "disabled" , @class = "form-control2", @id="bio" })
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        @Html.LabelFor(model => model.UserViewModel.company, new { @class="form-label"})
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.UserViewModel.company, new {disabled= "disabled", @class = "form-control2", @id="company" })
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        @Html.LabelFor(model => model.UserViewModel.location, new { @class="form-label"})
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.UserViewModel.location, new {disabled= "disabled", @class = "form-control2", @id="location" })
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        @Html.LabelFor(model => model.UserViewModel.email, new { @class="form-label"})
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.UserViewModel.email, new {disabled= "disabled", @class = "form-control2" })
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        @Html.LabelFor(model => model.UserViewModel.hireable, new { @class="form-label"})
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.UserViewModel.hireable, new {disabled= "disabled", @class = "form-control2" })
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        @Html.LabelFor(model => model.UserViewModel.twitter_username, new { @class="form-label"})
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.UserViewModel.twitter_username, new {disabled= "disabled" , @class = "form-control2"})
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <div class="col-md-3 alert-message">
+                            <span>*** You should update the highlighted fields in your github profile: </span>
+                            <a href="@Url.Content(Model.UserViewModel.html_url)">@Model.UserViewModel.html_url</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+
+        <div class="col-sm-3">
+            <input type="button"
+                   name="button"
+                   id="buttonProfileDetail"
+                   value="Show Details"
+                   tabindex="3"
+                   class="btn btn-block" />
+        </div>
+
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-sm-3">
+            <svg text="muted" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-people">
+                <path fill-rule="evenodd" d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"></path>
+            </svg>
+            @Html.HiddenFor(model => model.UserViewModel.following, new { Value = @Model.UserViewModel.following })
+            <span class="text-bold color-fg-default">@Model.UserViewModel.following</span> Following
+            <span>·     </span>
+            @Html.HiddenFor(model => model.UserViewModel.public_repos, new { Value = @Model.UserViewModel.public_repos })
+            <span class="text-bold color-fg-default">@Model.UserViewModel.public_repos</span> Public Repos
+        </div>
+
+    </div>
+    <br />
+    <br />
+    @*Popular Developers*@
+    <div id="divDev" class="row">
+        <div class="col-sm-3">
+            <div class="Box color-shadow-small mb-4">
+                <div class="Box-header d-flex">
+                    <span class="color-fg-muted tooltipped tooltipped-ne mr-2" aria-label="These results are generated by GitHub computers">
+                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-telescope">
+                            <path fill-rule="evenodd" d="M14.184 1.143a1.75 1.75 0 00-2.502-.57L.912 7.916a1.75 1.75 0 00-.53 2.32l.447.775a1.75 1.75 0 002.275.702l11.745-5.656a1.75 1.75 0 00.757-2.451l-1.422-2.464zm-1.657.669a.25.25 0 01.358.081l1.422 2.464a.25.25 0 01-.108.35l-2.016.97-1.505-2.605 1.85-1.26zM9.436 3.92l1.391 2.41-5.42 2.61-.942-1.63 4.97-3.39zM3.222 8.157l-1.466 1a.25.25 0 00-.075.33l.447.775a.25.25 0 00.325.1l1.598-.769-.83-1.436zm6.253 2.306a.75.75 0 00-.944-.252l-1.809.87a.75.75 0 00-.293.253L4.38 14.326a.75.75 0 101.238.848l1.881-2.75v2.826a.75.75 0 001.5 0v-2.826l1.881 2.75a.75.75 0 001.238-.848l-2.644-3.863z"></path>
+                        </svg>
+                    </span>
+                    <h3 class="Box-title">
+                        <a data-hydro-click="{&quot;event_type&quot;:&quot;explore.click&quot;,&quot;payload&quot;:{&quot;click_context&quot;:&quot;TRENDING_CARD&quot;,&quot;click_target&quot;:&quot;TRENDING_DEVELOPERS&quot;,&quot;click_visual_representation&quot;:&quot;TRENDING_DEVELOPERS_HEADING&quot;,&quot;actor_id&quot;:18198958,&quot;record_id&quot;:null,&quot;originating_url&quot;:&quot;https://github.com/explore&quot;,&quot;user_id&quot;:18198958}}" data-hydro-click-hmac="1d18fa444c8a2c85e16453581a4251d1323098265348bccf5810f9aaff5174fe" data-ga-click="Explore, go to Trending Developers, location:trending box"  data-view-component="true" class="color-fg-default">
+                            Popular developers
+                        </a>
+                    </h3>
+                </div>
+                <div>
+                    @foreach (GitHubDevViewModel dev in Model.DevViewModelList)
+                    {
+                        <article class="Box-row">
+                            <div class="d-flex gutter-condensed">
+                                <div class="col-3">
+                                    <img class="avatar avatar-user" style="height: auto" src="@Url.Content(dev.avatar_url)" width="100%" height="100%" alt="">
+                                </div>
+                                <div class="col-9">
+                                    <h4 class="f4 text-bold lh-condensed mb-2">
+                                        <a data-hydro-click="{&quot;event_type&quot;:&quot;explore.click&quot;,&quot;payload&quot;:{&quot;click_context&quot;:&quot;TRENDING_CARD&quot;,&quot;click_target&quot;:&quot;OWNER&quot;,&quot;click_visual_representation&quot;:&quot;TRENDING_DEVELOPER&quot;,&quot;actor_id&quot;:18198958,&quot;record_id&quot;:1309177,&quot;originating_url&quot;:&quot;https://github.com/explore&quot;,&quot;user_id&quot;:18198958}}" data-hydro-click-hmac="1d533935ea410be86e8e00ad6e19a3a20cadb6b6f284bfdcfe88c8f9f5b696c5" data-ga-click="Explore, go to user, location:trending developers box" href="@Url.Content(dev.html_url)" data-view-component="true">
+                                            @dev.login
+                                        </a>
+                                    </h4>
+
+                                    <p class="f6 mb-0">
+                                        <a data-hydro-click="{&quot;event_type&quot;:&quot;explore.click&quot;,&quot;payload&quot;:{&quot;click_context&quot;:&quot;TRENDING_CARD&quot;,&quot;click_target&quot;:&quot;REPOSITORY&quot;,&quot;click_visual_representation&quot;:&quot;TRENDING_DEVELOPER_POPULAR_REPOSITORY&quot;,&quot;actor_id&quot;:18198958,&quot;record_id&quot;:523043277,&quot;originating_url&quot;:&quot;https://github.com/explore&quot;,&quot;user_id&quot;:18198958}}" data-hydro-click-hmac="eef34c61168e071fe69027a3b2778cb920924305c69f30378166a68bcaaf23a7" data-ga-click="Explore, go to user, location:trending developers box" href="@Url.Content(dev.html_url)?tab=repositories" data-view-component="true" class="color-fg-muted">
+                                            <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-repo color-fg-muted v-align-middle mr-1">
+                                                <path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path>
+                                            </svg>
+                                            repos
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    }
+
+                </div>
+                <div class="Box-footer">
+                    <a data-hydro-click="{&quot;event_type&quot;:&quot;explore.click&quot;,&quot;payload&quot;:{&quot;click_context&quot;:&quot;TRENDING_CARD&quot;,&quot;click_target&quot;:&quot;TRENDING_DEVELOPERS&quot;,&quot;click_visual_representation&quot;:&quot;SEE_MORE_TRENDING_DEVELOPERS&quot;,&quot;actor_id&quot;:18198958,&quot;record_id&quot;:null,&quot;originating_url&quot;:&quot;https://github.com/explore&quot;,&quot;user_id&quot;:18198958}}" data-hydro-click-hmac="1e77280d62e40b1db0a12d35b096e2c2d5810fe57963d3e685ba51b18dd29ce0" data-ga-click="Explore, go to Trending Developers, location:trending box" href="https://github.com/trending/developers" data-view-component="true" class="f6">
+                        See more popular developers
+                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-right ml-1">
+                            <path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*Popular Repositories*@
+    <div id="divRepo" class="row">
+        <div class="col-sm-3">
+            <div class="Box color-shadow-small mb-4">
+                <div class="Box-header d-flex">
+                    <span class="color-fg-muted tooltipped tooltipped-ne mr-2" aria-label="These results are generated by GitHub computers">
+                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-telescope">
+                            <path fill-rule="evenodd" d="M14.184 1.143a1.75 1.75 0 00-2.502-.57L.912 7.916a1.75 1.75 0 00-.53 2.32l.447.775a1.75 1.75 0 002.275.702l11.745-5.656a1.75 1.75 0 00.757-2.451l-1.422-2.464zm-1.657.669a.25.25 0 01.358.081l1.422 2.464a.25.25 0 01-.108.35l-2.016.97-1.505-2.605 1.85-1.26zM9.436 3.92l1.391 2.41-5.42 2.61-.942-1.63 4.97-3.39zM3.222 8.157l-1.466 1a.25.25 0 00-.075.33l.447.775a.25.25 0 00.325.1l1.598-.769-.83-1.436zm6.253 2.306a.75.75 0 00-.944-.252l-1.809.87a.75.75 0 00-.293.253L4.38 14.326a.75.75 0 101.238.848l1.881-2.75v2.826a.75.75 0 001.5 0v-2.826l1.881 2.75a.75.75 0 001.238-.848l-2.644-3.863z"></path>
+                        </svg>
+                    </span>
+                    <h3 class="Box-title">
+                        <a data-hydro-click="{&quot;event_type&quot;:&quot;explore.click&quot;,&quot;payload&quot;:{&quot;click_context&quot;:&quot;TRENDING_CARD&quot;,&quot;click_target&quot;:&quot;TRENDING&quot;,&quot;click_visual_representation&quot;:&quot;TRENDING_REPOSITORIES_HEADING&quot;,&quot;actor_id&quot;:18198958,&quot;record_id&quot;:null,&quot;originating_url&quot;:&quot;https://github.com/explore&quot;,&quot;user_id&quot;:18198958}}" data-hydro-click-hmac="f4050b329a832f52015e12b673f9bf9bf3a1dc1ed4a4f076a879b8b795e79406" data-ga-click="Explore, go to Trending, location:trending repositories box" data-view-component="true" class="color-fg-default">
+                            Popular repositories
+                        </a>
+                    </h3>
+                </div>
+
+                <div>
+                    @foreach (GitHubRepoViewModel repo in Model.RepoViewModelList)
+                    {
+                        <article class="Box-row">
+                            <a href="@Url.Content(repo.stargazers_url)" class="float-right Link--secondary no-wrap mb-2 ml-2" data-ga-click="Explore, go to repository stargazers, location:trending repositories box">
+                                <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-star mt-1 mr-1">
+                                    <path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
+                                </svg>
+                                @repo.stargazers_count
+                            </a>
+
+                            <div class="d-flex">
+                                <span>
+                                    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-repo mr-2 color-fg-muted">
+                                        <path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path>
+                                    </svg>
+                                </span>
+                                <h4 class="f4 color-fg-muted text-normal lh-condensed Truncate" title="@repo.full_name">
+                                    <a data-hydro-click="{&quot;event_type&quot;:&quot;explore.click&quot;,&quot;payload&quot;:{&quot;click_context&quot;:&quot;TRENDING_CARD&quot;,&quot;click_target&quot;:&quot;OWNER&quot;,&quot;click_visual_representation&quot;:&quot;REPOSITORY_OWNER_HEADING&quot;,&quot;actor_id&quot;:18198958,&quot;record_id&quot;:22197568,&quot;originating_url&quot;:&quot;https://github.com/explore&quot;,&quot;user_id&quot;:18198958}}" data-hydro-click-hmac="718e62c34b11ec92029234df76661cabdef5d39de35a9923fded738af45f191b" data-ga-click="Explore, go to repository owner, location:trending repositories box" href="@Url.Content(repo.html_url)" data-view-component="true" class="Truncate-text">
+                                        @repo.name
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <p class="f6 color-fg-muted mt-2 mb-0">
+                                @repo.description
+                            </p>
+                        </article>
+                    }
+                </div>
+
+                <div class="Box-footer">
+                    <a data-hydro-click="{&quot;event_type&quot;:&quot;explore.click&quot;,&quot;payload&quot;:{&quot;click_context&quot;:&quot;TRENDING_CARD&quot;,&quot;click_target&quot;:&quot;TRENDING&quot;,&quot;click_visual_representation&quot;:&quot;SEE_MORE_TRENDING_REPOSITORIES&quot;,&quot;actor_id&quot;:18198958,&quot;record_id&quot;:null,&quot;originating_url&quot;:&quot;https://github.com/explore&quot;,&quot;user_id&quot;:18198958}}" data-hydro-click-hmac="a7f0fead3951384d99538b3a202bd12374910bb7c595067043e9c79afbbfdabd" data-ga-click="Explore, go to Trending, location:trending repositories box" href="https://github.com/trending" data-view-component="true" class="f6">
+                        See more popular repositories
+                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-right ml-1">
+                            <path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"></path>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <br />
+    @Html.ActionLink("Back", "Index","Home")
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#profileDetail").hide();
+        $("#divDev").hide();
+        $("#divRepo").hide();
+
+        $("#buttonProfileDetail").click(function () {
+            var isVisible = $('#profileDetail').is(':visible');
+            isVisible == true ? $("#profileDetail").hide() : $("#profileDetail").show()
+            isVisible == true ? $("#buttonProfileDetail").val("Show Details") : $("#buttonProfileDetail").val("Hide Details")
+        });
+
+        if ($("#bio").val() == '') {
+            $("#bio").addClass("focused");
+            $(".alert-message").show();
+        }
+        if ($("#company").val() == '') {
+            $("#company").addClass("focused");
+            $(".alert-message").show();
+        }
+        if ($("#location").val() == '') {
+            $("#location").addClass("focused");
+            $(".alert-message").show();
+        }
+
+        if ($("#UserViewModel_following").val() < 5){
+            $("#divDev").show();
+        }
+        if ($("#UserViewModel_public_repos").val() < 5) {
+            $("#divRepo").show();
+        }
+
+    })
+
+</script>
